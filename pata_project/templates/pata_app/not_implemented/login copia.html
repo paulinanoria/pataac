@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron col-xs-12 col-md-8 col-md-push-2" style="background-color:transparent;padding-top: 24px;">
+	
+	{% if err %}
+		<div class="alert alert-danger col-xs-12 col-md-8 col-md-push-2" role="alert" style="padding:8pt;">
+		<a class="close fa fa-remove" style="color:#f21362;"></a>
+		<span style="text-align: center;font-weight: 300;font-size:9pt;color:#f21362;">&nbsp;Wrong username or password.</span>
+		</div>
+	{% endif %}
+
+	{% if user.is_authenticated %}
+		<h2>Welcome {{ user.username | capfirst }}!</h2><br>
+		<a href="/app_people_voice/logout_author" class="btn btn-default">Logout</a>
+	{% else %}
+
+
+<div  class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+	<form method="POST">
+			{% csrf_token %}
+
+			<div class="field-row">
+
+				<div class="input-group col-xs-8 col-xs-push-2">
+				<span class="input-group-addon" id="basic-addon1"><a class="glyphicon glyphicon-user colorglyphi"></a></span>
+				<input name="username" type="text" class="form-control" placeholder="username" aria-describedby="basic-addon1">
+				</div>
+				
+				<label></label>
+
+				<div class="input-group col-xs-8 col-xs-push-2">
+					<div class="input-group-addon" id="basic-addon1"><a class="glyphicon glyphicon-lock colorglyphi"></a></div>
+					<input name="password" type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1">
+				</div>
+				
+				<label></label>
+
+				<div class="input-group col-xs-8 col-xs-push-2">
+					<button type="submit" class="btn btn-default col-xs-12">Login</button>
+				</div>
+
+				<div style="text-align: center"><br>
+					<a href="/app_people_voice/register_authors" style="color:#3f2f8d">Register</a>
+				</div>
+			</div>
+		</form>
+</div>
+
+		
+	{% endif %}
+
+</div>
+{% endblock %}
+	

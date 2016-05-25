@@ -1,0 +1,137 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <div class="wrapper">
+
+            <div class="inner-wrapper">
+
+                <div class="contact-2">
+
+                    <div class="content-inner clearfix">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>REGISTRAR MASCOTA</h4>
+                            </div>
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="col two-third">
+
+                        <form method="POST">
+                            {% csrf_token %}
+
+                            <p>
+                                <label for="id_owner">Owner:</label> 
+                                <select id="id_owner" name="owner">
+                                    <option value="" selected="selected">---------</option>
+                                    <option value="{{user.id}}">{{user.username}}</option>
+                                </select>
+                            </p>
+                            <p>
+                                <input id="id_age" min="0" name="age" type="number" placeholder="Edad"/>
+                            </p>
+                            <p>
+                                <input id="id_address" maxlength="50" name="address" type="text" placeholder="Direccion"/>
+                            </p>
+                            <p>
+                                <input id="id_postal_code" min="0" name="postal_code" type="number" placeholder="Codigo postal"/>
+                            </p>
+                            
+                                <p>
+                                    <input id="id_identification" maxlength="50" name="identification" type="text" placeholder="IFE"/>
+                            </p>
+                            
+                                <p>
+                                    <input id="id_phone" min="0" name="phone" type="number" placeholder="Telefono"/>
+                            </p>
+                            <p>
+                                <input id="id_pet_name" maxlength="25" name="pet_name" type="text" placeholder="Nombre de la mascota"/>
+                            </p>
+                            <p>
+                                <label for="id_pet_specie">Especie:</label> 
+                                <select id="id_pet_specie" name="pet_specie">
+                                    <option value="" selected="selected">---------</option>
+                                    <option value="P">Perro</option>
+                                    <option value="G">Gato</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label for="id_pet_sex">Sexo:</label> 
+                                <select id="id_pet_sex" name="pet_sex">
+                                    <option value="" selected="selected">---------</option>
+                                    <option value="M">Macho</option>
+                                    <option value="H">Hembra</option>
+                                    <option value="HE">Hembra-Embarazada</option>
+                                    <option value="HL">Hembra-Lactando</option>
+                                    <option value="HM">Hembra-Madre</option>
+                                    <option value="HM">Hembra-Celo</option>
+                                </select>
+                            </p>
+                            <p>
+                                <input id="id_breed" maxlength="50" name="breed" type="text" placeholder="Raza"/>
+                            </p>
+                            <p>
+                                <input id="id_color" maxlength="50" name="color" type="text" placeholder="Color"/>
+                            </p>
+                            <p>
+                                <input id="id_weight" min="0" name="weight" type="number" placeholder="Peso (kg)"/>
+                            </p>
+                            <p>
+                                <input id="id_pet_age" min="0" name="pet_age" type="number" placeholder="Edad mascota"/>
+                            </p>
+                            <p>
+                                <label for="id_pet_aggressive">Pet aggressive:</label> <input id="id_pet_aggressive" name="pet_aggressive" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_diabetes">Diabetes:</label> <input id="id_diabetes" name="diabetes" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_cardiac_problems">Cardiac problems:</label> <input id="id_cardiac_problems" name="cardiac_problems" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_tbt">Tbt:</label> 
+                                <input id="id_tbt" name="tbt" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_thyroid">Thyroid:</label> 
+                                <input id="id_thyroid" name="thyroid" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_fleas">Fleas:</label> 
+                                <input id="id_fleas" name="fleas" type="checkbox"/>
+                            </p>
+                            <p>
+                                <label for="id_ticks">Ticks:</label> 
+                                <input id="id_ticks" name="ticks" type="checkbox"/>
+                            </p>
+                            <p>
+                                <input id="id_additional_data" maxlength="50" name="additional_data" type="text" placeholder="Informacion adicional"/>
+                            </p>
+                            
+                            <input class="btn-cust" type="submit" value="Enviar">
+                            <input class="btn-cust" type="reset" value="Cancelar">
+
+                        </form>
+                        </div>
+
+
+                        <div class="divider clear" style="height:200px;"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% endblock content %}
+    <!-- End Content -->

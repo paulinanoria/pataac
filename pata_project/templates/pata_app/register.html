@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <div class="wrapper">
+
+            <div class="inner-wrapper">
+
+                <div class="contact-2">
+
+                    <div class="content-inner clearfix">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>REGISTRAR MIEMBRO</h4>
+                            </div>
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="col two-third">
+                            <form method="POST" enctype="multipart/form-data" >
+                                {% csrf_token %}
+                                {{ form.as_p }}
+                                <input class="btn btn-cust" type="submit" value="ENVIAR">
+                                <a href="/pets" class="btn btn-cust">CANCELAR</a>
+                                <p class="message-info">Message Info.</p>   
+                            </form>
+                        </div>
+
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% endblock content %}
+    <!-- End Content -->

@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <div class="wrapper">
+
+            <div class="inner-wrapper">
+
+                <div class="contact-2">
+
+                    <div class="content-inner clearfix">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>CONTACTO</h4>
+                            </div>
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="row">
+
+                            <div class="info-box col one-third">
+                                <p class="desc">TELEFONO</p>
+                                <p class="info">+52 (664) 143 8856</p>
+                            </div>
+                            <div class="info-box col one-third">
+                                <p class="desc">DIRECCION</p>
+                                <p class="info">Col Centro, TIJUANA</p>
+                            </div>
+                            <div class="info-box col one-third">
+                                <p class="desc">EMAIL</p>
+                                <p class="info">CONTACTO@PATA.COM</p>
+                            </div>
+
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="row">
+
+                            <div class="two-third col">
+                                <!--action="http://www.codesymbol.com/templates/uno/dark/includes/contact_form.php"-->
+                                <form method="POST">
+                                    {% csrf_token %}
+
+                                    <input type="text" name="name" placeholder="NOMRE" id="id_name" >
+                                    <input type="email" name="mail" placeholder="EMAIL" id="id_mail">
+                                    <input type="text" name="subject" placeholder="ASUNTO" id="id_subject">
+                                    <textarea name="content" placeholder="MENSAJE" id="id_content"></textarea>
+                                    <input type="submit" name="submit" value="ENVIAR">
+                                    <p class="message-info">Message Info.</p>
+                                </form>
+
+                            </div>
+                            <div class="one-third col">
+
+                                <p>Nuestra mision es llevar campañas de esterilización gratuitas (y a bajo costo) así como pláticas de concientización sobre el trato y cuidado animal, a colonias de bajos recursos de la ciudad de Tijuana.</p>
+
+                                <div class="divider clear" style="height:10px;"></div>
+
+                                <!--<div class="info-box">
+                                    <p class="desc">WORKING HOURS</p>
+                                    <p class="info">MONDAY: 9 AM - 6 PM<br/>TUESDAY: 9 AM - 6 PM<br/>WEDNESDAY: 9 AM - 8 PM<br/>THURSDAY: 9 AM - 8 PM<br/>FRIDAY: 10 AM - 10 PM</p>
+                                </div>-->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="map" data-address="Tijuana, Mexico">
+                        <div class="open"><p>MOSTRAR MAPA</p></div>
+                        <div class="map-content"></div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    {% endblock content %}
+    <!-- End Content -->

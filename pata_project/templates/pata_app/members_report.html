@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <!-- Begin Wrapper -->
+        <div class="wrapper">
+
+            <!-- Begin Inner Wrapper -->
+            <div class="inner-wrapper">
+
+                <div class="row">
+                    <div class="col full">
+                        <h4>MIEMBROS</h4>
+                    </div>
+                </div>
+
+                <!-- Begin Gallery -->
+                {% if user.is_superuser %}
+
+                    <table class="table table-striped" style="">
+                    <tr style="">
+                        <th>LAST NAME</th>
+                        <th>FIRST NAME</th>
+                        <th>EMAIL</th>
+                        <th>ADMIN</th>
+                    </tr>
+                    {% for item in object_list %}
+                    <tr style="">
+                        <td style="color:#0abfaa;">{{ item.user_perfil.last_name | upper }}</td>
+                        <td style="color:#0abfaa;">{{ item.user_perfil.first_name | upper }}</td>
+                        <td style="color:#aaacae;">{{ item.user_perfil.email | upper }}</td>
+                        <td style="color:#000;">
+                        		<a href="{% url 'pata_app:update_member' id=item.user_perfil.id %}">
+                        			<span class="label label-pill label-info"><i class="icon1-edit" style="color:#0abfaa;"></i></a>
+                				<a href="{% url 'pata_app:delete_member' id=item.user_perfil.id %}">
+                					<span class="label label-pill label-danger"><i class="icon1-remove" style="color:#0abfaa;"></i></a>
+        					</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+
+
+                <div class="row">
+                    <div class="col full">
+                        <h4>USUARIOS</h4>
+                    </div>
+                </div>
+
+                    <table class="table table-striped" style="">
+                    <tr style="background-color:#ffffff; color:black;">
+                        <th>LAST NAME</th>
+                        <th>FIRST NAME</th>
+                        <th>EMAIL</th>
+                        <th>ADMIN</th>
+                    </tr>
+                    {% for item in users_list %}
+                    <tr style="">
+                        <td style="color:#0abfaa;">{{ item.user.last_name | upper }}</td>
+                        <td style="color:#0abfaa;">{{ item.user.first_name | upper }}</td>
+                        <td style="color:#aaacae;">{{ item.user.email  | upper}}</td>
+                        <td style="color:#000;">
+                		<a href="{% url 'pata_app:update_user' id=item.user_id %}">
+            			<span class="label label-pill label-info"><i class="icon1-edit" style="color:#0abfaa;"></i></a>
+        				<a href="{% url 'pata_app:delete_member' id=item.user_id %}">
+    					<span class="label label-pill label-danger"><i class="icon1-remove" style="color:#0abfaa;"></i></a>
+        				</td>
+                    </tr>
+                    {% endfor %}
+                    </table>
+
+                {% endif %}
+					
+                <div class="divider clear" style="height:10px;"></div>
+				<div><a href="/register_members" class="btn-cust">ADD MEMBER</a></div>
+                
+                <!-- End Gallery -->
+
+            </div>
+            <!-- End Inner Wrapper -->
+
+        </div>
+        <!-- End Wrapper -->
+
+    </div>
+    {% endblock content %}
+    <!-- End Content -->

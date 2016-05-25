@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <!-- Begin Wrapper -->
+        <div class="wrapper">
+
+            <!-- Begin Inner Wrapper -->
+            <div class="inner-wrapper">
+
+                <!-- Begin Portfolio -->
+                <div class="portfolio-single style-2">
+                    <div class="content-inner clearfix">
+
+                        <div class="header">
+                            <h4>ADOPTAR MASCOTA</h4>
+                            <span>
+                              <div class="navigation">
+                                    <a href="/gallery" class="back icon4-noun_7231"></a>
+                                    <button  onclick="setSelectedTestPlan(this);" href="javascript:void(0);" id="{{ pet.id }}" name="{{ pet.id }}" class="btn btn-default btn-circles btn-like icon2-checkmark"></button>
+                              </div>
+                            </span>
+                        </div>
+
+                        <div class="content">
+
+                            <div class="divider" style="height:20px;"></div>
+
+                            <div class="row">
+
+                                <div class="col one-fourth">
+                                    <div class="info-box">
+                                        <p class="desc">NOMBRE</p>
+                                        <p class="info">{{ pet.pet_name | upper }}</p>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <p class="desc">EDAD</p>
+                                        <p class="info">{{ pet.pet_age | upper }} AÑOS</p>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <p class="desc">ESPECIE</p>
+                                        <p class="info">{{ pet.get_pet_specie_display | upper }}</p>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <p class="desc">SEXO</p>
+                                        <p class="info">{{ pet.get_pet_sex_display | upper }}</p>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <p class="desc">STATUS</p>
+                                        <p class="info">{{ pet.get_pet_rescued_display | upper }}</p>
+                                    </div>
+
+                                    <div class="info-box">
+                                        <p class="desc">FECHA</p>
+                                        <p class="info">{{ pet.pet_added | upper }}</p>
+                                    </div>
+                                </div>
+
+                                <div class="col three-fourth">
+
+                                    <div class="flexslider clearfix">
+
+                                        <ul class="images">
+                                            <li><img src="{{pet.pet_avatar.url}}" style="float: right;"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="clear"></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- End Portfolio -->
+
+            </div>
+            <!-- End Inner Wrapper -->
+
+        </div>
+        <!-- End Wrapper -->
+
+    </div>
+    {% endblock content %}
+    <!-- End Content -->

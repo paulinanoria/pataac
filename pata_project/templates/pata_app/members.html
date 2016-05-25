@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <!-- Begin Wrapper -->
+        <div class="wrapper">
+
+            <!-- Begin Inner Wrapper -->
+            <div class="inner-wrapper">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>GALERÍA</h4>
+                            </div>
+                        </div>
+
+                <!-- Begin Gallery -->
+                    <div class="container-fluid bg-2 text-left">
+                        <div class="jumbotron col-md-12" style="background-color:#ffffff;">
+
+                        {% if user.is_superuser %}
+
+                            <table class="table table-striped" style="background-color:#263238;">
+                            <tr style="background-color:#ffffff; color:black;">
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Mail</th>
+                                <th>Edit</th>
+                            </tr>
+                            {% for item in object_list %}
+                            <tr style="background-color:#ffffff; color:black;">
+                                <td style="color:#0abfaa;">{{ item.user_perfil.last_name | capfirst }}</td>
+                                <td style="color:#0abfaa;">{{ item.user_perfil.first_name | capfirst }}</td>
+                                <td style="color:#aaacae;">{{ item.member_mail }}</td>
+                               {#  <td style="color:#aaacae;"><a style="text-align: right;font-size: 12px;padding-right: 5pt"> <a href="{% url 'pata_app:update_member' id=item.user_perfil_id %}"><span class="label label-pill label-info"><i class="glyphicon glyphicon-pencil"></i><a href="{% url 'pata_app:delete_member' id=item.user_perfil.id %}"><span class="label label-pill label-danger"><i class="glyphicon glyphicon-remove"></i></a></a></a></td> #}
+                            </tr>
+                            {% endfor %}
+                            </table>
+
+                        {% elif perms.pata_app.can_do_things %}
+
+                            <table class="table table-striped" style="background-color:#263238;">
+                            <tr style="background-color:#ffffff; color:black;">
+                                <th>Last Name</th>
+                                <th>First Name</th>
+                                <th>Mail</th>
+                            </tr>
+                            {% for item in object_list %}
+                            <tr style="background-color:#ffffff; color:black;">
+                                <td style="color:#0abfaa;">{{ item.user_perfil.last_name | capfirst }}</td>
+                                <td style="color:#0abfaa;">{{ item.user_perfil.first_name | capfirst }}</td>
+                                <td style="color:#aaacae;">{{ item.member_mail }}</td>
+                            </tr>
+                            {% endfor %}
+                            </table>
+
+                        {% endif %}
+
+                        <a href="/pata_app/register_members" class="btn btn-default btn-md-line">Add member</a>
+                        </div>
+                        </div>  
+                <!-- End Gallery -->
+
+            </div>
+            <!-- End Inner Wrapper -->
+
+        </div>
+        <!-- End Wrapper -->
+
+    </div>
+    {% endblock content %}
+    <!-- End Content -->

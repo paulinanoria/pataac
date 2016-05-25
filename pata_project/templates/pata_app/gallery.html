@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <!-- Begin Wrapper -->
+        <div class="wrapper">
+
+            <!-- Begin Inner Wrapper -->
+            <div class="inner-wrapper">
+
+                <div class="row">
+                    <div class="col one-half">
+                        <h4>GALERÍA</h4>
+                        <form class="searchbox-container" role="search" action="/search_pet/" method="POST">
+                            {% csrf_token %}
+                                <input type="search" class="searchbox" name="q" autocomplete="off" placeholder="Search" />
+                                <button type="submit" class="searchbutton icon1-search"></button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Begin Gallery -->
+                <div class="gallery-images grid style-icons high-space">
+
+                    <div class="row">
+
+                        <div class="col full">
+
+                            <div class="filters clearfix">
+
+                                <p>FILTRO</p>
+                                <a href="#" data-filter="*" class="active">TODOS</a>
+                                <a href="#" data-filter=".filter-cats">GATOS</a>
+                                <a href="#" data-filter=".filter-dogs">PERROS</a>
+
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                    <div class="images clearfix cols-4">
+
+                    {% for pet in pets %}
+
+                    <div class="img {% if pet.pet_specie == 'P' %} filter-dogs {% else %} filter-cats {% endif %}">
+
+                        <div class="img-cont">
+                            
+                                <img data-width="470" data-height="375" style="background-image: url({{ pet.pet_avatar.url }}); background-repeat: no-repeat; background-size: cover;">
+
+                                <div class="overlay">
+
+                                    <a href="#" class="preview-3" style="text-align:center;padding-top:5px;">{{pet.pet_name | upper}}</a>
+                                    <a href="{{ pet.pet_avatar.url }}" class="preview icon4-eyeball5" rel="gallery"></a>
+                                    <span class="separator"></span>
+                                    <a href="{% url 'pata_app:detail_pet' id=pet.id %}" class="love icon1-heart-empty"></a>
+                                    <a href="{% url 'pata_app:detail_pet' id=pet.id %}" class="love-2 icon1-heart"></a>
+
+                                    <a href="#" class="preview-3" style="text-align:center;padding-top:30px;">{{pet.get_pet_sex_display | upper}}</a>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    {% endfor %}
+
+                        
+                    <!--<div class="img filter-dogs">
+
+                        <div class="img-cont">
+                            
+                            <img class="lazy" data-original="/static/images/gallery/g7_16.png" alt="" data-width="470" data-height="375">
+
+                            <div class="overlay">
+
+                                <a href="/static/images/gallery/g7_16.png" class="preview icon4-eyeball5" rel="gallery"></a>
+                                <span class="separator"></span>
+                                <a href="#" class="love icon1-heart-empty"></a>
+                                <a href="#" class="love-2 icon1-heart"></a>
+
+                            </div>
+
+                        </div>
+
+                    </div>-->
+
+                    </div>
+
+                </div>
+                <!-- End Gallery -->
+
+            </div>
+            <!-- End Inner Wrapper -->
+
+        </div>
+        <!-- End Wrapper -->
+
+    </div>
+    {% endblock content %}
+    <!-- End Content -->

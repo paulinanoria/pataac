@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <div class="wrapper">
+
+            <div class="inner-wrapper">
+
+                <div class="contact-2">
+
+                    <div class="content-inner clearfix">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>MODIFICAR MIEMBRO</h4>
+                            </div>
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="col two-third">
+                            <form method="POST">
+                                {% csrf_token %}
+                                {{ users_form.as_p}}
+                                {{ profile_form.as_p }}
+                                <input class="btn btn-default" type="submit" value="ENVIAR">
+                                <a href="/members" class="btn btn-cust">CANCELAR</a>
+                            </form>
+                        </div>
+
+
+                        <div class="divider clear" style="height:200px;"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% endblock content %}
+    <!-- End Content -->

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+    <!-- Begin Content -->
+    {% block content %}
+    <div class="main-container with-padding" style="background-color: rgba(0,0,0,.2);">
+
+        <div class="wrapper">
+
+            <div class="inner-wrapper">
+
+                <div class="contact-2">
+
+                    <div class="content-inner clearfix">
+
+                        <div class="row">
+                            <div class="col full">
+                                <h4>MIEMBROS</h4>
+                            </div>
+                        </div>
+
+                        <div class="divider clear" style="height:0px;"></div>
+
+                        <div class="col two-third">
+                            <form method="POST">
+								{% csrf_token %}
+
+								<div class="field-row">
+
+									<div class="">
+										<input name="username" type="text" class="form-control" placeholder="EMAIL O USUARIO" aria-describedby="basic-addon1" autocomplete="off">
+										<input name="password" type="password" class="form-control" placeholder="CONTRASEÑA" aria-describedby="basic-addon1">
+									</div>
+									
+									<div class="">
+										<button type="submit" class="btn-cust">LOGIN</button>
+									</div>
+
+									<label></label>
+                       				<div class="divider clear" style="height:20px;"></div>
+
+                       				<a class="btn-cust" href="{% url 'social:begin' 'facebook' %}">LOGIN USUARIO</a>
+
+								</div>
+							</form>	
+                        </div>
+
+                        <div class="divider clear" style="height:200px;"></div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+    {% endblock content %}
+    <!-- End Content -->
